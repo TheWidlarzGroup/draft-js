@@ -164,10 +164,11 @@ class ContentState extends ContentStateRecord {
   createEntity(
     type: DraftEntityType,
     mutability: DraftEntityMutability,
+    layer: number = 1,
     data?: Object,
   ): ContentState {
     // TODO: update this when we fully remove DraftEntity
-    DraftEntity.__create(type, mutability, data);
+    DraftEntity.__create(type, mutability, layer, data);
     return this;
   }
 
