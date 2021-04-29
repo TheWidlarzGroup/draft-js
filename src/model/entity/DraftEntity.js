@@ -116,10 +116,11 @@ const DraftEntity: DraftEntityMapObject = {
   __create(
     type: DraftEntityType,
     mutability: DraftEntityMutability,
+    layer: number,
     data?: Object,
   ): string {
     return DraftEntity.__add(
-      new DraftEntityInstance({type, mutability, data: data || {}}),
+      new DraftEntityInstance({type, mutability, layer, data: data || {}}),
     );
   },
 

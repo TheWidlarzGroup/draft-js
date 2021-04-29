@@ -23,6 +23,7 @@ const DraftEntityInstanceRecord = (Record({
   type: 'TOKEN',
   mutability: 'IMMUTABLE',
   data: Object,
+  layer: 1,
 }): any);
 
 /**
@@ -47,6 +48,10 @@ class DraftEntityInstance extends DraftEntityInstanceRecord {
 
   getData(): Object {
     return this.get('data');
+  }
+
+  getLayer(): Object {
+    return this.get('layer');
   }
 }
 
