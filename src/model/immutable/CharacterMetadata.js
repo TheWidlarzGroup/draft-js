@@ -26,7 +26,7 @@ export type CharacterMetadataRawConfig = {
   ...
 };
 
-type CharacterMetadataConfig = interface {
+type CharacterMetadataConfig = {
   style?: CharacterMetadataConfigValueType,
   entity?: CharacterMetadataConfigValueType,
 };
