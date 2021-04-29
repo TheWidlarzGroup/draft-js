@@ -180,10 +180,7 @@ class ContentState extends ContentStateRecord {
     return this;
   }
 
-  replaceEntityData(
-    key: string,
-    newData: interface {[key: string]: any},
-  ): ContentState {
+  replaceEntityData(key: string, newData: {[key: string]: any}): ContentState {
     // TODO: update this when we fully remove DraftEntity
     DraftEntity.__replaceData(key, newData);
     return this;
