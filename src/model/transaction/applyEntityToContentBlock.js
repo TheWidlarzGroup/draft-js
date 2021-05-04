@@ -12,6 +12,7 @@
 'use strict';
 
 import type {BlockNodeRecord} from 'BlockNodeRecord';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const CharacterMetadata = require('CharacterMetadata');
 
@@ -20,13 +21,14 @@ function applyEntityToContentBlock(
   startArg: number,
   end: number,
   entityKey: ?string,
+  layer: EntityLayer,
 ): BlockNodeRecord {
   let start = startArg;
   let characterList = contentBlock.getCharacterList();
   while (start < end) {
     characterList = characterList.set(
       start,
-      CharacterMetadata.applyEntity(characterList.get(start), entityKey),
+      CharacterMetadata.applyEntity(characterList.get(start), entityKey, layer),
     );
     start++;
   }

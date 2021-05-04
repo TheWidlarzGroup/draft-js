@@ -12,6 +12,7 @@
 'use strict';
 
 import type {DraftInlineStyle} from 'DraftInlineStyle';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const {Map, OrderedSet, Record} = require('immutable');
 
@@ -23,12 +24,14 @@ type CharacterMetadataConfigRawValueType = Array<string> | ?string;
 export type CharacterMetadataRawConfig = {
   style?: CharacterMetadataConfigRawValueType,
   entity?: CharacterMetadataConfigRawValueType,
+  entity2nd?: CharacterMetadataConfigRawValueType,
   ...
 };
 
 type CharacterMetadataConfig = {
   style?: CharacterMetadataConfigValueType,
   entity?: CharacterMetadataConfigValueType,
+  entity2nd?: CharacterMetadataConfigValueType,
 };
 
 const EMPTY_SET = OrderedSet();
@@ -36,6 +39,7 @@ const EMPTY_SET = OrderedSet();
 const defaultRecord: CharacterMetadataConfig = {
   style: EMPTY_SET,
   entity: null,
+  entity2nd: null,
 };
 
 const CharacterMetadataRecord = (Record(defaultRecord): any);
@@ -45,7 +49,11 @@ class CharacterMetadata extends CharacterMetadataRecord {
     return this.get('style');
   }
 
-  getEntity(): ?string {
+  getEntity(layer: EntityLayer): ?string {
+    if (layer) {
+      return this.get('entity2nd');
+    }
+
     return this.get('entity');
   }
 
@@ -72,11 +80,13 @@ class CharacterMetadata extends CharacterMetadataRecord {
   static applyEntity(
     record: CharacterMetadata,
     entityKey: ?string,
+    layer: EntityLayer,
   ): CharacterMetadata {
     const withEntity =
-      record.getEntity() === entityKey
+      record.getEntity(layer) === entityKey
         ? record
-        : record.set('entity', entityKey);
+        : record.set(layer ? 'entity2nd' : ' entity', entityKey);
+
     return CharacterMetadata.create(withEntity);
   }
 
@@ -94,6 +104,7 @@ class CharacterMetadata extends CharacterMetadataRecord {
     const defaultConfig: CharacterMetadataConfig = {
       style: EMPTY_SET,
       entity: (null: ?string),
+      entity2nd: (null: ?string),
     };
 
     // Fill in unspecified properties, if necessary.
@@ -112,10 +123,12 @@ class CharacterMetadata extends CharacterMetadataRecord {
   static fromJS({
     style,
     entity,
+    entity2nd,
   }: CharacterMetadataRawConfig): CharacterMetadata {
     return new CharacterMetadata({
       style: Array.isArray(style) ? OrderedSet(style) : style,
       entity: Array.isArray(entity) ? OrderedSet(entity) : entity,
+      entity2nd: Array.isArray(entity2nd) ? OrderedSet(entity2nd) : entity2nd,
     });
   }
 }

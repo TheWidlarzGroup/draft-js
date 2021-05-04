@@ -19,6 +19,7 @@ import type {DraftRemovalDirection} from 'DraftRemovalDirection';
 import type SelectionState from 'SelectionState';
 import type {Map} from 'immutable';
 import type {BlockDataMergeBehavior} from 'insertFragmentIntoContentState';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const CharacterMetadata = require('CharacterMetadata');
 const ContentStateInlineStyle = require('ContentStateInlineStyle');
@@ -252,6 +253,7 @@ const DraftModifier = {
     contentState: ContentState,
     selectionState: SelectionState,
     entityKey: ?string,
+    layer: EntityLayer,
   ): ContentState {
     const withoutEntities = removeEntitiesAtEdges(contentState, selectionState);
     return applyEntityToContentState(
