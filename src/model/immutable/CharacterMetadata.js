@@ -49,12 +49,8 @@ class CharacterMetadata extends CharacterMetadataRecord {
     return this.get('style');
   }
 
-  getEntity(layer: EntityLayer): ?string {
-    if (layer) {
-      return this.get('entity2nd');
-    }
-
-    return this.get('entity');
+  getEntity(layer?:EntityLayer): ?string {
+    return this.get(layer === 2 ? 'entity2nd' : 'entity');
   }
 
   hasStyle(style: string): boolean {
@@ -80,7 +76,7 @@ class CharacterMetadata extends CharacterMetadataRecord {
   static applyEntity(
     record: CharacterMetadata,
     entityKey: ?string,
-    layer: EntityLayer,
+    layer?:EntityLayer,
   ): CharacterMetadata {
     const withEntity =
       record.getEntity(layer) === entityKey

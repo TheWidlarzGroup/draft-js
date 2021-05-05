@@ -15,4 +15,4 @@
  * Used to handle multiple layers of entitiies
  * */
 
-export type EntityLayer = ?2;
+export type EntityLayer = 1 | 2;

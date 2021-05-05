@@ -11,6 +11,7 @@
 
 import type {DraftEntityMutability} from 'DraftEntityMutability';
 import type {DraftEntityType} from 'DraftEntityType';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const DraftEntityInstance = require('DraftEntityInstance');
 
@@ -32,8 +33,8 @@ export type DraftEntityMapObject = {
   __create: (
     type: DraftEntityType,
     mutability: DraftEntityMutability,
-    layer: number,
     data?: Object,
+    layer?: EntityLayer,
   ) => string,
   __add: (instance: DraftEntityInstance) => string,
   __get: (key: string) => DraftEntityInstance,
@@ -104,8 +105,8 @@ const DraftEntity: DraftEntityMapObject = {
   __create(
     type: DraftEntityType,
     mutability: DraftEntityMutability,
-    layer: number,
     data?: Object,
+    layer?:EntityLayer,
   ): string {
     return DraftEntity.__add(
       new DraftEntityInstance({type, mutability, layer, data: data || {}}),

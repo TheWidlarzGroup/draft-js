@@ -122,6 +122,7 @@ const encodeRawEntityMap = (
       type: entity.getType(),
       mutability: entity.getMutability(),
       data: entity.getData(),
+      layer: entity.getLayer(),
     };
   });
 

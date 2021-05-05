@@ -253,7 +253,7 @@ const DraftModifier = {
     contentState: ContentState,
     selectionState: SelectionState,
     entityKey: ?string,
-    layer: EntityLayer,
+    layer?:EntityLayer,
   ): ContentState {
     const withoutEntities = removeEntitiesAtEdges(contentState, selectionState);
     return applyEntityToContentState(
