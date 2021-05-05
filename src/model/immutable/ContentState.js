@@ -19,6 +19,7 @@ import type DraftEntityInstance from 'DraftEntityInstance';
 import type {DraftEntityMutability} from 'DraftEntityMutability';
 import type {DraftEntityType} from 'DraftEntityType';
 import type {EntityMap} from 'EntityMap';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const BlockMapBuilder = require('BlockMapBuilder');
 const CharacterMetadata = require('CharacterMetadata');
@@ -164,8 +165,8 @@ class ContentState extends ContentStateRecord {
   createEntity(
     type: DraftEntityType,
     mutability: DraftEntityMutability,
-    layer: number = 1,
     data?: Object,
+    layer: EntityLayer,
   ): ContentState {
     // TODO: update this when we fully remove DraftEntity
     DraftEntity.__create(type, mutability, layer, data);
