@@ -260,6 +260,7 @@ const DraftModifier = {
       withoutEntities,
       selectionState,
       entityKey,
+      layer,
     );
   },
 };
