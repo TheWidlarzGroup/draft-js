@@ -85,7 +85,7 @@ class CharacterMetadata extends CharacterMetadataRecord {
     const withEntity =
       record.getEntity(layer) === entityKey
         ? record
-        : record.set(layer ? 'entity2nd' : ' entity', entityKey);
+        : record.set(layer ? 'entity2nd' : 'entity', entityKey);
 
     return CharacterMetadata.create(withEntity);
   }
