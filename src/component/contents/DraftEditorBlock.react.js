@@ -202,6 +202,7 @@ class DraftEditorBlock extends React.Component<Props> {
         const end = leavesForLeafSet.last().get('end');
         const decoratedText = text.slice(start, end);
         const entityKey = block.getEntityAt(leafSet.get('start'));
+        const entityKey2nd = block.getEntityAtSecondLayer(leafSet.get('start'));
 
         // Resetting dir to the same value on a child node makes Chrome/Firefox
         // confused on cursor movement. See http://jsfiddle.net/d157kLck/3/
@@ -218,6 +219,7 @@ class DraftEditorBlock extends React.Component<Props> {
           end,
           blockKey,
           entityKey,
+          entityKey2nd,
           offsetKey: decoratorOffsetKey,
         };
 

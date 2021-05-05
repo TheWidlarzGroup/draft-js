@@ -92,6 +92,11 @@ class ContentBlock extends ContentBlockRecord implements BlockNode {
     return character ? character.getEntity() : null;
   }
 
+  getEntityAtSecondLayer(offset: number): ?string {
+    const character = this.getCharacterList().get(offset);
+    return character ? character.getEntity(2) : null;
+  }
+
   /**
    * Execute a callback for every contiguous range of styles within the block.
    */

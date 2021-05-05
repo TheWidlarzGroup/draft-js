@@ -122,6 +122,11 @@ class ContentBlockNode extends (Record(defaultRecord): any)
     return character ? character.getEntity() : null;
   }
 
+  getEntityAtSecondLayer(offset: number): ?string {
+    const character = this.getCharacterList().get(offset);
+    return character ? character.getEntity(2) : null;
+  }
+
   getChildKeys(): List<BlockNodeKey> {
     return this.get('children');
   }
