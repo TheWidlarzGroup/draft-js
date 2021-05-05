@@ -49,7 +49,7 @@ class CharacterMetadata extends CharacterMetadataRecord {
     return this.get('style');
   }
 
-  getEntity(layer?:EntityLayer): ?string {
+  getEntity(layer?: EntityLayer): ?string {
     return this.get(layer === 2 ? 'entity2nd' : 'entity');
   }
 
@@ -76,7 +76,7 @@ class CharacterMetadata extends CharacterMetadataRecord {
   static applyEntity(
     record: CharacterMetadata,
     entityKey: ?string,
-    layer?:EntityLayer,
+    layer?: EntityLayer,
   ): CharacterMetadata {
     const withEntity =
       record.getEntity(layer) === entityKey

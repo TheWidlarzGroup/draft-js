@@ -22,7 +22,7 @@ function applyEntityToContentState(
   contentState: ContentState,
   selectionState: SelectionState,
   entityKey: ?string,
-  layer?:?EntityLayer,
+  layer?: ?EntityLayer,
 ): ContentState {
   const blockMap = contentState.getBlockMap();
   const startKey = selectionState.getStartKey();

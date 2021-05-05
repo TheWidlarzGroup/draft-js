@@ -106,7 +106,7 @@ const DraftEntity: DraftEntityMapObject = {
     type: DraftEntityType,
     mutability: DraftEntityMutability,
     data?: Object,
-    layer?:EntityLayer,
+    layer?: EntityLayer,
   ): string {
     return DraftEntity.__add(
       new DraftEntityInstance({type, mutability, layer, data: data || {}}),
