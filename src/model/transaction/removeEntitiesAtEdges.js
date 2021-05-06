@@ -46,9 +46,14 @@ function removeEntitiesAtEdges(
   }
 
   const updatedEnd = removeForBlock(contentState, endBlock, endOffset);
+  const updatedEndStage2 = removeForBlockSecondLayer(
+    contentState,
+    updatedEnd,
+    endOffset,
+  );
 
   if (updatedEnd !== endBlock) {
-    updatedBlocks[endKey] = updatedEnd;
+    updatedBlocks[endKey] = updatedEndStage2;
   }
 
   if (!Object.keys(updatedBlocks).length) {
@@ -103,6 +108,43 @@ function getRemovalRange(
   return removalRange;
 }
 
+function getRemovalRangeAtSecondLayer(
+  characters: List<CharacterMetadata>,
+  entityKey: ?string,
+  offset: number,
+): {
+  start: number,
+  end: number,
+  ...
+} {
+  let removalRange;
+
+  // Iterates through a list looking for ranges of matching items
+  // based on the 'isEqual' callback.
+  // Then instead of returning the result, call the 'found' callback
+  // with each range.
+  // Then filters those ranges based on the 'filter' callback
+  //
+  // Here we use it to find ranges of characters with the same entity key.
+  findRangesImmutable(
+    characters, // the list to iterate through
+    (a, b) => a.getEntity(2) === b.getEntity(2), // 'isEqual' callback
+    element => element.getEntity(2) === entityKey, // 'filter' callback
+    (start: number, end: number) => {
+      // 'found' callback
+      if (start <= offset && end >= offset) {
+        // this entity overlaps the offset index
+        removalRange = {start, end};
+      }
+    },
+  );
+  invariant(
+    typeof removalRange === 'object',
+    'Removal range must exist within character list.',
+  );
+  return removalRange;
+}
+
 function removeForBlock(
   contentState: ContentState,
   block: BlockNodeRecord,
@@ -122,6 +164,41 @@ function removeForBlock(
       while (start < end) {
         current = chars.get(start);
         chars = chars.set(start, CharacterMetadata.applyEntity(current, null));
+        start++;
+      }
+      return block.set('characterList', chars);
+    }
+  }
+
+  return block;
+}
+
+function removeForBlockSecondLayer(
+  contentState: ContentState,
+  block: BlockNodeRecord,
+  offset: number,
+): BlockNodeRecord {
+  let chars = block.getCharacterList();
+  const charBefore = offset > 0 ? chars.get(offset - 1) : undefined;
+  const charAfter = offset < chars.count() ? chars.get(offset) : undefined;
+  const entityBeforeCursor = charBefore ? charBefore.getEntity(2) : undefined;
+  const entityAfterCursor = charAfter ? charAfter.getEntity(2) : undefined;
+
+  if (entityAfterCursor && entityAfterCursor === entityBeforeCursor) {
+    const entity = contentState.getEntity(entityAfterCursor);
+    if (entity.getMutability() !== 'MUTABLE') {
+      let {start, end} = getRemovalRangeAtSecondLayer(
+        chars,
+        entityAfterCursor,
+        offset,
+      );
+      let current;
+      while (start < end) {
+        current = chars.get(start);
+        chars = chars.set(
+          start,
+          CharacterMetadata.applyEntity(current, null, 2),
+        );
         start++;
       }
       return block.set('characterList', chars);
