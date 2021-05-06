@@ -781,7 +781,7 @@ class ContentBlocksBuilder {
 const convertFromHTMLToContentBlocks = (
   html: string,
   DOMBuilder: Function = getSafeBodyFromHTML,
-  blockRenderMap?: DraftBlockRenderMap = DefaultDraftBlockRenderMap,
+  blockRenderMap: DraftBlockRenderMap = DefaultDraftBlockRenderMap,
 ): ?{
   contentBlocks: ?Array<BlockNodeRecord>,
   entityMap: EntityMap,
