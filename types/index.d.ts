@@ -1284,6 +1284,7 @@ export {
   DraftDecorator,
   CompositeDecorator,
   Entity,
+  EntityLayer,
   EntityInstance,
   BlockMapBuilder,
   CharacterMetadata,
