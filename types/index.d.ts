@@ -999,7 +999,7 @@ declare namespace Draft {
         static create(): CharacterMetadata;
 
         getStyle(): DraftInlineStyle;
-        getEntity(): string;
+        getEntity(layer?: EntityLayer): string;
         hasStyle(style: string): boolean;
       }
 
@@ -1147,6 +1147,7 @@ declare namespace Draft {
           contentState: ContentState,
           selectionState: SelectionState,
           entityKey: string | null,
+          layer?: EntityLayer,
         ): ContentState;
       }
 

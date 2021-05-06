@@ -42,7 +42,7 @@ function encodeEntityRanges(
   );
 
   block.findEntityRanges(
-    character => !!character.getEntity(2),
+    character => character.getEntity(2) !== null,
     (/*number*/ start, /*number*/ end) => {
       const text = block.getText();
       const key = block.getEntityAtSecondLayer(start);
