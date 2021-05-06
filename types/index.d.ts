@@ -1,6 +1,6 @@
 /** @format */
 
-// Type definitions for Draft.js custom TWG version
+// Type definitions for custom Draft.js version
 // Project: https://github.com/TheWidlarzGroup/draft-js
 // Definitions by: Dmitry Rogozhny <https://github.com/dmitryrogozhny>
 //                 Eelco Lempsink <https://github.com/eelco>
