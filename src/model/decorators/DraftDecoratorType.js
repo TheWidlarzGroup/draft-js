@@ -21,7 +21,7 @@ import type {List} from 'immutable';
  *
  * See `CompositeDraftDecorator` for the most common use case.
  */
-export type DraftDecoratorType = interface {
+export type DraftDecoratorType = {
   /**
    * Given a `ContentBlock`, return an immutable List of decorator keys.
    */
