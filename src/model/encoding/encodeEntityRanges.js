@@ -40,6 +40,21 @@ function encodeEntityRanges(
       });
     },
   );
+
+  block.findEntityRanges(
+    character => !!character.getEntity(2),
+    (/*number*/ start, /*number*/ end) => {
+      const text = block.getText();
+      const key = block.getEntityAtSecondLayer(start);
+      encoded.push({
+        offset: strlen(text.slice(0, start)),
+        length: strlen(text.slice(start, end)),
+        // Encode the key as a number for range storage.
+        key: Number(storageMap[DraftStringKey.stringify(key)]),
+      });
+    },
+  );
+
   return encoded;
 }
 
