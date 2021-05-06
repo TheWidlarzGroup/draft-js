@@ -873,6 +873,7 @@ declare namespace Draft {
         getData(): Immutable.Map<any, any>;
         getInlineStyleAt(offset: number): DraftInlineStyle;
         getEntityAt(offset: number): string;
+        getEntityAtSecondLayer(offset: number): string;
 
         /**
          * Execute a callback for every contiguous range of styles within the block.
