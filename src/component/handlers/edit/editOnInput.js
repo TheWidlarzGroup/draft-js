@@ -166,6 +166,15 @@ function editOnInput(editor: DraftEditor, event: ?SyntheticInputEvent<>): void {
   const entityType = entity != null ? entity.getMutability() : null;
   const preserveEntity = entityType === 'MUTABLE';
 
+  // handle 2nd layer
+  const entityKey2ndLayer = block.getEntityAtSecondLayer(start);
+  const entity2ndLayer = notEmptyKey(entityKey)
+    ? content.getEntity(entityKey2ndLayer)
+    : null;
+  const entityType2ndLayer =
+    entity2ndLayer != null ? entity2ndLayer.getMutability() : null;
+  const preserveEntity2ndLayer = entityType2ndLayer === 'MUTABLE';
+
   // Immutable or segmented entities cannot properly be handled by the
   // default browser undo, so we have to use a different change type to
   // force using our internal undo method instead of falling through to the
@@ -178,6 +187,7 @@ function editOnInput(editor: DraftEditor, event: ?SyntheticInputEvent<>): void {
     domText,
     block.getInlineStyleAt(start),
     preserveEntity ? block.getEntityAt(start) : null,
+    preserveEntity2ndLayer ? block.getEntityAtSecondLayer(start) : null,
   );
 
   let anchorOffset, focusOffset, startOffset, endOffset;

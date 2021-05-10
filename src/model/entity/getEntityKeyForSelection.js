@@ -13,6 +13,7 @@
 
 import type ContentState from 'ContentState';
 import type SelectionState from 'SelectionState';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const {notEmptyKey} = require('draftKeyUtils');
 
@@ -24,7 +25,16 @@ const {notEmptyKey} = require('draftKeyUtils');
 function getEntityKeyForSelection(
   contentState: ContentState,
   targetSelection: SelectionState,
+  layer: EntityLayer = 1,
 ): ?string {
+  if (layer === 2) {
+    return getEntityKeyForSelectionAtSecondLayer(
+      contentState,
+      targetSelection,
+      layer,
+    );
+  }
+
   let entityKey;
 
   if (targetSelection.isCollapsed()) {
@@ -48,6 +58,42 @@ function getEntityKeyForSelection(
     startOffset === startBlock.getLength()
       ? null
       : startBlock.getEntityAt(startOffset);
+
+  return filterKey(contentState, entityKey);
+}
+
+function getEntityKeyForSelectionAtSecondLayer(
+  contentState: ContentState,
+  targetSelection: SelectionState,
+): ?string {
+  let entityKey;
+
+  if (targetSelection.isCollapsed()) {
+    const key = targetSelection.getAnchorKey();
+    const offset = targetSelection.getAnchorOffset();
+    if (offset > 0) {
+      entityKey = contentState
+        .getBlockForKey(key)
+        .getEntityAtSecondLayer(offset - 1);
+      if (
+        entityKey !==
+        contentState.getBlockForKey(key).getEntityAtSecondLayer(offset)
+      ) {
+        return null;
+      }
+      return filterKey(contentState, entityKey);
+    }
+    return null;
+  }
+
+  const startKey = targetSelection.getStartKey();
+  const startOffset = targetSelection.getStartOffset();
+  const startBlock = contentState.getBlockForKey(startKey);
+
+  entityKey =
+    startOffset === startBlock.getLength()
+      ? null
+      : startBlock.getEntityAtSecondLayer(startOffset);
 
   return filterKey(contentState, entityKey);
 }

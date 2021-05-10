@@ -55,6 +55,7 @@ const DraftModifier = {
     text: string,
     inlineStyle?: DraftInlineStyle,
     entityKey?: ?string,
+    entityKey2nd?: string,
   ): ContentState {
     const withoutEntities = removeEntitiesAtEdges(contentState, rangeToReplace);
     const withoutText = removeRangeFromContentState(
@@ -65,6 +66,7 @@ const DraftModifier = {
     const character = CharacterMetadata.create({
       style: inlineStyle || OrderedSet(),
       entity: entityKey || null,
+      entity2nd: entityKey2nd || null,
     });
 
     return insertTextIntoContentState(

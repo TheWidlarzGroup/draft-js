@@ -12,6 +12,7 @@
 'use strict';
 
 import type {BlockNodeRecord} from 'BlockNodeRecord';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 /**
  * Find the string of text between the previous entity and the specified
@@ -20,11 +21,17 @@ import type {BlockNodeRecord} from 'BlockNodeRecord';
 function getTextAfterNearestEntity(
   block: BlockNodeRecord,
   offset: number,
+  layer?: EntityLayer,
 ): string {
   let start = offset;
 
   // Get start based on where the last entity ended.
-  while (start > 0 && block.getEntityAt(start - 1) === null) {
+  while (
+    start > 0 &&
+    (layer === 2
+      ? block.getEntityAtSecondLayer(start - 1) === null
+      : block.getEntityAt(start - 1)) === null
+  ) {
     start--;
   }
 

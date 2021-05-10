@@ -59,7 +59,9 @@ const haveEqualStyle = (
 const haveEqualEntity = (
   charA: CharacterMetadata,
   charB: CharacterMetadata,
-): boolean => charA.getEntity() === charB.getEntity();
+): boolean =>
+  charA.getEntity() === charB.getEntity() ||
+  charA.getEntity(2) === charB.getEntity(2);
 
 const decorateCharacterList = (
   config: ContentBlockNodeConfig,

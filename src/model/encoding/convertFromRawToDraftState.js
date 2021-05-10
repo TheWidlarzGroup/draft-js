@@ -251,8 +251,13 @@ const decodeRawEntityMap = (
   let contentState = contentStateArg;
 
   Object.keys(rawEntityMap).forEach(rawEntityKey => {
-    const {type, mutability, data} = rawEntityMap[rawEntityKey];
-    contentState = contentState.createEntity(type, mutability, data || {});
+    const {type, mutability, data, layer} = rawEntityMap[rawEntityKey];
+    contentState = contentState.createEntity(
+      type,
+      mutability,
+      data || {},
+      layer,
+    );
     // get the key reference to created entity
     entityKeyMap[rawEntityKey] = contentState.getLastCreatedEntityKey();
   });

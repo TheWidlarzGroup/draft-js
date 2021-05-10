@@ -207,6 +207,13 @@ const DraftEditorCompositionHandler = {
         contentState,
         replacementRange,
       );
+
+      const entityKey2nd = getEntityKeyForSelection(
+        contentState,
+        replacementRange,
+        2,
+      );
+
       const currentStyle = contentState
         .getBlockForKey(blockKey)
         .getInlineStyleAt(start);
@@ -217,6 +224,7 @@ const DraftEditorCompositionHandler = {
         composedChars,
         currentStyle,
         entityKey,
+        entityKey2nd,
       );
       // We need to update the editorState so the leaf node ranges are properly
       // updated and multiple mutations are correctly applied.

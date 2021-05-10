@@ -33,9 +33,14 @@ function removeEntitiesAtEdges(
   const startOffset = selectionState.getStartOffset();
   const startBlock = blockMap.get(startKey);
   const updatedStart = removeForBlock(contentState, startBlock, startOffset);
+  const updatedStartStage2 = removeForBlockSecondLayer(
+    contentState,
+    updatedStart,
+    startOffset,
+  );
 
   if (updatedStart !== startBlock) {
-    updatedBlocks[startKey] = updatedStart;
+    updatedBlocks[startKey] = updatedStartStage2;
   }
 
   const endKey = selectionState.getEndKey();
