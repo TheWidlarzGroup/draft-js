@@ -447,6 +447,7 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -464,6 +465,7 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -481,6 +483,7 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -791,11 +794,51 @@ Object {
         "entity2nd": null,
         "style": Array [],
       },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
+      Object {
+        "entity": null,
+        "entity2nd": null,
+        "style": Array [],
+      },
     ],
     "data": Object {},
     "depth": 0,
     "key": "a",
-    "text": "Alpha",
+    "text": "Alpha protein",
     "type": "unstyled",
   },
   "b": Object {

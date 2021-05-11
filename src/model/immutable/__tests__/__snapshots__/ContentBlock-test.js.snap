@@ -52,22 +52,27 @@ exports[`must have appropriate default values 6`] = `
 Array [
   Object {
     "entity": null,
+    "entity2nd": null,
     "style": Array [],
   },
   Object {
     "entity": null,
+    "entity2nd": null,
     "style": Array [],
   },
   Object {
     "entity": null,
+    "entity2nd": null,
     "style": Array [],
   },
   Object {
     "entity": null,
+    "entity2nd": null,
     "style": Array [],
   },
   Object {
     "entity": null,
+    "entity2nd": null,
     "style": Array [],
   },
 ]

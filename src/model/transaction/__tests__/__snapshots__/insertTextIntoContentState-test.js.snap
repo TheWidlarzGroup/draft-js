@@ -6,32 +6,39 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
@@ -47,30 +54,35 @@ Object {
     "characterList": Array [
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
@@ -86,18 +98,22 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -127,42 +143,49 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
@@ -183,34 +206,41 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -224,30 +254,35 @@ Object {
     "characterList": Array [
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
@@ -263,18 +298,22 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -304,42 +343,49 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
@@ -360,34 +406,41 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -401,30 +454,35 @@ Object {
     "characterList": Array [
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
@@ -440,18 +498,22 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -481,42 +543,49 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
@@ -537,22 +606,27 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -566,30 +640,35 @@ Object {
     "characterList": Array [
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
       },
       Object {
         "entity": "2",
+        "entity2nd": null,
         "style": Array [
           "BOLD",
         ],
@@ -605,18 +684,22 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [],
       },
     ],
@@ -646,42 +729,49 @@ Object {
     "characterList": Array [
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
       },
       Object {
         "entity": null,
+        "entity2nd": null,
         "style": Array [
           "ITALIC",
         ],
