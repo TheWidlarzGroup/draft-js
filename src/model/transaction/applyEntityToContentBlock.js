@@ -21,7 +21,7 @@ function applyEntityToContentBlock(
   startArg: number,
   end: number,
   entityKey: ?string,
-  layer?: EntityLayer,
+  layer: EntityLayer = 1,
 ): BlockNodeRecord {
   let start = startArg;
   let characterList = contentBlock.getCharacterList();

@@ -274,6 +274,7 @@ const NestedRichTextEditorUtil: RichTextUtils = {
       '\n',
       editorState.getCurrentInlineStyle(),
       null,
+      null,
     );
 
     const newEditorState = EditorState.push(

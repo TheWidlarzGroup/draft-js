@@ -83,6 +83,7 @@ const DraftModifier = {
     text: string,
     inlineStyle?: DraftInlineStyle,
     entityKey?: ?string,
+    entityKey2nd: ?string,
   ): ContentState {
     invariant(
       targetRange.isCollapsed(),
@@ -94,6 +95,7 @@ const DraftModifier = {
       text,
       inlineStyle,
       entityKey,
+        entityKey2nd
     );
   },
 
