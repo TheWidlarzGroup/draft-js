@@ -123,7 +123,7 @@ const assertConvertFromHTMLToContentBlocks = (html_string, config = {}) => {
 
 const testConvertingAdjacentHtmlElementsToContentBlocks = (
   tag: string,
-  experimentalTreeDataSupport?: boolean = false,
+  experimentalTreeDataSupport: boolean = false,
 ) => {
   test(`must not merge tags when converting adjacent <${tag} />`, () => {
     const html_string = `

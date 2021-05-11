@@ -58,6 +58,7 @@ Object {
   "data": Object {
     "uri": "zombo.com",
   },
+  "layer": undefined,
   "mutability": "MUTABLE",
   "type": "LINK",
 }

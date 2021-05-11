@@ -53,6 +53,7 @@ function replaceText(
   text: string,
   inlineStyle: DraftInlineStyle,
   entityKey: ?string,
+  entityKey2nd: ?string,
   forceSelection: boolean,
 ): EditorState {
   const contentState = DraftModifier.replaceText(
@@ -61,6 +62,7 @@ function replaceText(
     text,
     inlineStyle,
     entityKey,
+    entityKey2nd,
   );
   return EditorState.push(
     editorState,
@@ -135,6 +137,11 @@ function editOnBeforeInput(
         getEntityKeyForSelection(
           editorState.getCurrentContent(),
           editorState.getSelection(),
+        ),
+        getEntityKeyForSelection(
+          editorState.getCurrentContent(),
+          editorState.getSelection(),
+          2,
         ),
         true,
       ),
