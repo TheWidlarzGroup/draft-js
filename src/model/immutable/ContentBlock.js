@@ -139,10 +139,7 @@ function haveEqualEntity(
   charA: CharacterMetadata,
   charB: CharacterMetadata,
 ): boolean {
-  return (
-    charA.getEntity() === charB.getEntity() ||
-    charA.getEntity(2) === charB.getEntity(2)
-  );
+  return charA.getEntity() === charB.getEntity();
 }
 
 module.exports = ContentBlock;

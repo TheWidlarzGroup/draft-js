@@ -206,6 +206,7 @@ Object {
       "data": Object {
         "url": "www.3.com",
       },
+      "layer": 1,
       "mutability": "IMMUTABLE",
       "type": "LINK",
     },
@@ -213,6 +214,7 @@ Object {
       "data": Object {
         "url": "www.4.com",
       },
+      "layer": 1,
       "mutability": "IMMUTABLE",
       "type": "LINK",
     },
@@ -220,6 +222,7 @@ Object {
       "data": Object {
         "url": "www.5.com",
       },
+      "layer": 1,
       "mutability": "IMMUTABLE",
       "type": "LINK",
     },
@@ -227,6 +230,7 @@ Object {
       "data": Object {
         "url": "www.6.com",
       },
+      "layer": 1,
       "mutability": "IMMUTABLE",
       "type": "LINK",
     },
