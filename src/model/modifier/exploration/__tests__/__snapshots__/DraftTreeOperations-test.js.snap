@@ -1036,7 +1036,7 @@ Immutable.OrderedMap {
     "type": "unstyled",
     "children": Immutable.List [
       "B",
-      "key0",
+      "key1",
     ],
     "prevSibling": "A",
     "nextSibling": "D",
@@ -1072,14 +1072,14 @@ Immutable.OrderedMap {
     "type": "unstyled",
     "children": Immutable.List [],
     "prevSibling": null,
-    "nextSibling": "key0",
+    "nextSibling": "key1",
   },
-  "key0": Immutable.Record {
+  "key1": Immutable.Record {
     "parent": "X",
     "characterList": Immutable.List [],
     "data": Immutable.Map {},
     "depth": 0,
-    "key": "key0",
+    "key": "key1",
     "text": "",
     "type": "unstyled",
     "children": Immutable.List [
@@ -1089,7 +1089,7 @@ Immutable.OrderedMap {
     "nextSibling": null,
   },
   "C": Immutable.Record {
-    "parent": "key0",
+    "parent": "key1",
     "characterList": Immutable.List [
       Immutable.Record {
         "style": Immutable.OrderedSet [],
