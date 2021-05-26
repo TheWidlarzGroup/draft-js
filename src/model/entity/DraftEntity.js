@@ -109,7 +109,7 @@ const DraftEntity: DraftEntityMapObject = {
     layer?: EntityLayer,
   ): string {
     return DraftEntity.__add(
-      new DraftEntityInstance({type, mutability, layer, data: data || {}}),
+      new DraftEntityInstance({type, mutability, data: data || {}, layer}),
     );
   },
 
