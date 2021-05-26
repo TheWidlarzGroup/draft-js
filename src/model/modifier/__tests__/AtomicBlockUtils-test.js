@@ -28,7 +28,7 @@ const sampleStateForTesting = getSampleStateForTesting();
 const {editorState, selectionState} = sampleStateForTesting;
 let {contentState} = sampleStateForTesting;
 
-contentuState = contentState.createEntity('TOKEN', 'MUTABLE');
+contentState = contentState.createEntity('TOKEN', 'MUTABLE');
 const initialBlock = contentState.getBlockMap().first();
 const ENTITY_KEY = contentState.getLastCreatedEntityKey();
 const CHARACTER = ' ';
