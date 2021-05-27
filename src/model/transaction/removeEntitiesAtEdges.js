@@ -33,14 +33,9 @@ function removeEntitiesAtEdges(
   const startOffset = selectionState.getStartOffset();
   const startBlock = blockMap.get(startKey);
   const updatedStart = removeForBlock(contentState, startBlock, startOffset);
-  const updatedStartStage2 = removeForBlockSecondLayer(
-    contentState,
-    updatedStart,
-    startOffset,
-  );
 
-  if (updatedStartStage2 !== startBlock) {
-    updatedBlocks[startKey] = updatedStartStage2;
+  if (updatedStart !== startBlock) {
+    updatedBlocks[startKey] = updatedStart;
   }
 
   const endKey = selectionState.getEndKey();
@@ -52,14 +47,8 @@ function removeEntitiesAtEdges(
 
   const updatedEnd = removeForBlock(contentState, endBlock, endOffset);
 
-  const updatedEndStage2 = removeForBlockSecondLayer(
-    contentState,
-    updatedEnd,
-    endOffset,
-  );
-
-  if (updatedEndStage2 !== endBlock) {
-    updatedBlocks[endKey] = updatedEndStage2;
+  if (updatedEnd !== endBlock) {
+    updatedBlocks[endKey] = updatedEnd;
   }
 
   if (!Object.keys(updatedBlocks).length) {
@@ -169,14 +158,21 @@ function removeForBlock(
       let current;
       while (start < end) {
         current = chars.get(start);
-        chars = chars.set(start, CharacterMetadata.applyEntity(current, null));
+        chars = chars.set(
+          start,
+          CharacterMetadata.applyEntity(current, null, 1),
+        );
         start++;
       }
-      return block.set('characterList', chars);
+      return removeForBlockSecondLayer(
+        contentState,
+        block.set('characterList', chars),
+        offset,
+      );
     }
   }
 
-  return block;
+  return removeForBlockSecondLayer(contentState, block, offset);
 }
 
 function removeForBlockSecondLayer(
