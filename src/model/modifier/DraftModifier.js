@@ -95,7 +95,7 @@ const DraftModifier = {
       text,
       inlineStyle,
       entityKey,
-        entityKey2nd
+      entityKey2nd,
     );
   },
 

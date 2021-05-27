@@ -138,7 +138,7 @@ function getEntityRemovalRange(
   );
 
   invariant(
-    entityRanges.length == 1,
+    entityRanges.length === 1,
     'There should only be one entity range within this removal range.',
   );
 
