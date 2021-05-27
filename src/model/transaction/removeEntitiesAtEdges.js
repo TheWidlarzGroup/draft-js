@@ -39,7 +39,7 @@ function removeEntitiesAtEdges(
     startOffset,
   );
 
-  if (updatedStart !== startBlock) {
+  if (updatedStartStage2 !== startBlock) {
     updatedBlocks[startKey] = updatedStartStage2;
   }
 
@@ -51,13 +51,14 @@ function removeEntitiesAtEdges(
   }
 
   const updatedEnd = removeForBlock(contentState, endBlock, endOffset);
+
   const updatedEndStage2 = removeForBlockSecondLayer(
     contentState,
     updatedEnd,
     endOffset,
   );
 
-  if (updatedEnd !== endBlock) {
+  if (updatedEndStage2 !== endBlock) {
     updatedBlocks[endKey] = updatedEndStage2;
   }
 
