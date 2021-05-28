@@ -153,17 +153,6 @@ test('must remove entity at start of selection - second layer', () => {
   );
 });
 
-test('must remove entity at start of selection - second layer', () => {
-  assertRemoveEntitiesAtEdges(
-    selectionState.merge({
-      anchorKey: 'b',
-      anchorOffset: 3,
-      focusKey: 'c',
-      focusOffset: 3,
-    }),
-  );
-});
-
 test('must remove entity at end of selection - second layer', () => {
   assertRemoveEntitiesAtEdges(
     selectionState.merge({
