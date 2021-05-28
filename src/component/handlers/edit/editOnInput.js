@@ -179,7 +179,10 @@ function editOnInput(editor: DraftEditor, event: ?SyntheticInputEvent<>): void {
   // default browser undo, so we have to use a different change type to
   // force using our internal undo method instead of falling through to the
   // native browser undo.
-  const changeType = preserveEntity ? 'spellcheck-change' : 'apply-entity';
+  const changeType =
+    preserveEntity || preserveEntity2ndLayer
+      ? 'spellcheck-change'
+      : 'apply-entity';
 
   const newContent = DraftModifier.replaceText(
     content,
