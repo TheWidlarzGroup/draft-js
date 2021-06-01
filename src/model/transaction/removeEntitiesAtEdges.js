@@ -15,6 +15,7 @@ import type {BlockNodeRecord} from 'BlockNodeRecord';
 import type ContentState from 'ContentState';
 import type SelectionState from 'SelectionState';
 import type {List} from 'immutable';
+import type {EntityLayer} from '../encoding/EntityLayer';
 
 const CharacterMetadata = require('CharacterMetadata');
 
@@ -70,6 +71,7 @@ function getRemovalRange(
   characters: List<CharacterMetadata>,
   entityKey: ?string,
   offset: number,
+  layer: EntityLayer = 1,
 ): {
   start: number,
   end: number,
@@ -86,45 +88,8 @@ function getRemovalRange(
   // Here we use it to find ranges of characters with the same entity key.
   findRangesImmutable(
     characters, // the list to iterate through
-    (a, b) => a.getEntity() === b.getEntity(), // 'isEqual' callback
-    element => element.getEntity() === entityKey, // 'filter' callback
-    (start: number, end: number) => {
-      // 'found' callback
-      if (start <= offset && end >= offset) {
-        // this entity overlaps the offset index
-        removalRange = {start, end};
-      }
-    },
-  );
-  invariant(
-    typeof removalRange === 'object',
-    'Removal range must exist within character list.',
-  );
-  return removalRange;
-}
-
-function getRemovalRangeAtSecondLayer(
-  characters: List<CharacterMetadata>,
-  entityKey: ?string,
-  offset: number,
-): {
-  start: number,
-  end: number,
-  ...
-} {
-  let removalRange;
-
-  // Iterates through a list looking for ranges of matching items
-  // based on the 'isEqual' callback.
-  // Then instead of returning the result, call the 'found' callback
-  // with each range.
-  // Then filters those ranges based on the 'filter' callback
-  //
-  // Here we use it to find ranges of characters with the same entity key.
-  findRangesImmutable(
-    characters, // the list to iterate through
-    (a, b) => a.getEntity(2) === b.getEntity(2), // 'isEqual' callback
-    element => element.getEntity(2) === entityKey, // 'filter' callback
+    (a, b) => a.getEntity(layer) === b.getEntity(layer), // 'isEqual' callback
+    element => element.getEntity(layer) === entityKey, // 'filter' callback
     (start: number, end: number) => {
       // 'found' callback
       if (start <= offset && end >= offset) {
@@ -189,11 +154,8 @@ function removeForBlockSecondLayer(
   if (entityAfterCursor && entityAfterCursor === entityBeforeCursor) {
     const entity = contentState.getEntity(entityAfterCursor);
     if (entity.getMutability() !== 'MUTABLE') {
-      let {start, end} = getRemovalRangeAtSecondLayer(
-        chars,
-        entityAfterCursor,
-        offset,
-      );
+      let {start, end} = getRemovalRange(chars, entityAfterCursor, offset, 2);
+
       let current;
       while (start < end) {
         current = chars.get(start);

@@ -11,8 +11,6 @@
 
 'use strict';
 
-import {EntityLayer} from '../../../../types';
-
 const DraftEntityInstance = require('DraftEntityInstance');
 
 const applyEntityToContentBlock = require('applyEntityToContentBlock');
@@ -32,18 +30,13 @@ const selectionOnEntity = selectionState.merge({
 });
 
 // Creates an entity with the given key and mutability
-function ensureEntityWithMutability(
-  contentState,
-  key,
-  mutability,
-  layer?: EntityLayer,
-) {
+function ensureEntityWithMutability(contentState, key, mutability) {
   return contentState.setEntityMap(
     contentState.getAllEntities().set(
       key,
       new DraftEntityInstance({
         mutability,
-        layer: layer || 1,
+        layer: 2,
       }),
     ),
   );
@@ -54,7 +47,7 @@ const assertRemoveEntitiesAtEdges = (
   mutability = 'IMMUTABLE',
   content = sampleContentState,
 ) => {
-  const contentState = ensureEntityWithMutability(content, '2', mutability, 2);
+  const contentState = ensureEntityWithMutability(content, '2', mutability);
   expect(
     removeEntitiesAtEdges(contentState, selection)
       .getBlockMap()
@@ -107,7 +100,7 @@ test('must remove for non-collapsed cursor within a single entity - second layer
 
 test('must remove for non-collapsed cursor on multiple entities - second layer', () => {
   const block = sampleContentState.getBlockForKey('b');
-  const newBlock = applyEntityToContentBlock(block, 3, 5, '456');
+  const newBlock = applyEntityToContentBlock(block, 3, 5, '456', 2);
   const newBlockMap = sampleContentState.getBlockMap().set('b', newBlock);
   let newContent = sampleContentState.setBlockMap(newBlockMap);
   newContent = ensureEntityWithMutability(newContent, '456', 'IMMUTABLE');
@@ -126,8 +119,8 @@ test('must ignore an entity that is entirely within the selection - second layer
   const block = sampleContentState.getBlockForKey('b');
 
   // Remove entity from beginning and end of block.
-  let newBlock = applyEntityToContentBlock(block, 0, 1, null);
-  newBlock = applyEntityToContentBlock(newBlock, 4, 5, null);
+  let newBlock = applyEntityToContentBlock(block, 0, 1, null, 2);
+  newBlock = applyEntityToContentBlock(newBlock, 4, 5, null, 2);
 
   const newBlockMap = sampleContentState.getBlockMap().set('b', newBlock);
   const newContent = sampleContentState.setBlockMap(newBlockMap);
@@ -167,7 +160,7 @@ test('must remove entity at end of selection - second layer', () => {
 test('must remove entities at both ends of selection - second layer', () => {
   const cBlock = sampleContentState.getBlockForKey('c');
   const len = cBlock.getLength();
-  const modifiedC = applyEntityToContentBlock(cBlock, 0, len, '456');
+  const modifiedC = applyEntityToContentBlock(cBlock, 0, len, '456', 2);
   const newBlockMap = sampleContentState.getBlockMap().set('c', modifiedC);
   let newContent = sampleContentState.setBlockMap(newBlockMap);
   newContent = ensureEntityWithMutability(newContent, '456', 'IMMUTABLE');
